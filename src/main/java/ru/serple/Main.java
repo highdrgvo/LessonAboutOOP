@@ -5,25 +5,25 @@ import ru.serple.data.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.serple.data.Country.RU;
+import static ru.serple.data.Country.RU; // Позволяет использовать RU без указания полного имени (Country.RU).
 
 public class Main {
-    public static void main(String[] args) {
-        invoke(new MasterCard());
+    public static void main(String[] args) { // - точка входа в программу. static - метод принадлежит классу, а не экземпляру класса.
+        invoke(new MasterCard()); // вызов метода invoke, передача объекта MasterCard в качестве аргумента. new MasterCard - создание нового объекта класса MasterCard
         List<String> aList = new ArrayList<>();
 
-//        Card visaCard = new VisaCard(); // Создание объекта (экземпляра) класса Card. masterCard - это переменная, которая будет хранить ссылку на объект. new Card() — создает новый объект (экземпляр) класса Card в памяти.
+//        Card visaCard = new VisaCard(); // Создание объекта (экземпляра) класса Card. visaCard - это переменная, которая будет хранить ссылку на объект. new Card() — создает новый объект (экземпляр) класса Card в памяти.
 //        visaCard.setBalance(100);
 //        visaCard.payInCountry(RU, 50);
 //        System.out.println("Current balance: " + visaCard.getBalance());
     }
 
-    // Выше не полиморфный код, потому что нужно менять название платежной карты.
+    // Выше не полиморфный код, потому что нужно менять название платежной карты (new MasterCard())
 
-    public static void invoke(Card card) {
+    public static void invoke(Card card) { // Принимает параметр card типа Card (или любого его подкласса, например, MasterCard).
 
         card.setBalance(100);
-        card.payInCountry(RU, 50);
+        card.payInCountry(RU, 50);// RU - элемент перечисления Country (Россия).
         System.out.println("Current balance: " + card.getBalance());
     }
 
@@ -34,5 +34,19 @@ public class Main {
 //    Программист может сделать два разных метода — один для картинки, другой для видео.
 //    А может воспользоваться полиморфизмом и создать один метод «Отправить» для обеих сущностей.
 
+//    Итог:
+//    Этот код демонстрирует:
+//            Создание объекта MasterCard (подкласс Card).
+//            Установку баланса карты в 100.
+//            Совершение платежа в России (RU) на сумму 50.
+//            Вывод оставшегося баланса.
+//
+//    Символы и ключевые слова:
+//            . - доступ к полям/методам объекта.
+//            () - вызов метода или объявление параметров.
+//            {} - ограничение блоков кода.
+//            ; - завершение инструкции.
+//            <> - дженерики (указание типа коллекции).
+//            * (в импорте) - импорт всех классов из пакета.
 
 }
