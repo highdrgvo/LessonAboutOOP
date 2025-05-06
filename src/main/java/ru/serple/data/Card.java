@@ -103,6 +103,7 @@ public abstract class Card {  // Класс - шаблон для объекта
         return balance >= amount;
     }
 
+    // Return используется для возврата значения из метода (если метод не void). В данном случае он вернет true или false
 
     public void payInCountry(Country country,  int amount) {
         if(isCountryValidForThisCard(country) && isBalanceGreaterOrEqualThan(amount)) {
@@ -110,6 +111,8 @@ public abstract class Card {  // Класс - шаблон для объекта
             System.out.println("Accepted");
         }
     }
+
+    // Void указывает, что метод не возвращает никакого значения
 
     // это функционал класса; то, что объекты этого класса умеют делать. Бизнес-логика, то полезное, что может делать программа, описывается в методах. Метод - это часть объекта.
     // Метод payInCountry говорит о том, что у объекта появилась возможность вызвать вот такое действие. И в country будет передать страну из enum класса, который создали.

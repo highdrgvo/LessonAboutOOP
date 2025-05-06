@@ -1,10 +1,39 @@
 package ru.serple.data;
 
-public class MasterCard extends Card { // благодаря extends мы можем использовать все вещи из класса Card в MasterCard
+public class MasterCard extends Card implements ICard { // благодаря extends мы можем использовать все вещи из класса Card в MasterCard
 
     public MasterCard() { // если конструктор есть в родительском классе, то и в наследниках он должен быть
         super(PaymentSystem.MASTERCARD);
     }
+
+    // implements означает, что класс MasterCard реализует интерфейс ICard.
+    // implements – это указание, что класс MasterCard обязуется предоставить реализацию всех методов, объявленных в ICard
+
+//    Пример:
+//    Допустим, интерфейс ICard выглядит так:
+//
+//    public interface ICard {
+//        String getCardNumber();
+//        boolean isValid();
+//    }
+//
+//    Тогда класс MasterCard должен реализовать эти методы:
+//
+//    public class MasterCard extends Card implements ICard {
+//        public MasterCard() {
+//            super(PaymentSystem.MASTERCARD);
+//        }
+//
+//        @Override
+//        public String getCardNumber() {
+//            return "5555-..."; // Пример реализации
+//        }
+//
+//        @Override
+//        public boolean isValid() {
+//            return true; // Пример реализации
+//        }
+//    }
 
     // Override - переопределение метода (англ. Method overriding) в ООП — одна из возможностей языка программирования,
     // позволяющая подклассу или дочернему классу обеспечивать специфическую реализацию метода, уже реализованного
